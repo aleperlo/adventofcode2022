@@ -1,0 +1,10 @@
+* Advent of Code 2022
+
+To create a folder for the puzzle for the ~n~-th day, run
+#+begin_src
+  ./newday.sh n
+#+end_src
+To solve the ~XX~-th day puzzle, run
+#+begin_src
+  cabal run dayXX
+#+end_src

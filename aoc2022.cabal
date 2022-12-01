@@ -1,0 +1,136 @@
+cabal-version:       2.2
+name:                aoc2022
+version:             0.1
+author:              Alessandro Perlo
+maintainer:          aleperlo002@gmail.com
+build-type:          Simple
+
+common shared-properties
+  build-depends:       base >=4.14 && <4.15,
+                       split
+  default-language:    Haskell2010
+
+executable day01
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day01
+
+executable day02
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day02
+
+executable day03
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day03
+
+executable day04
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day04
+
+executable day05
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day05
+
+executable day06
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day06
+
+executable day07
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day07
+
+executable day08
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day08
+
+executable day09
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day09
+
+executable day10
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day10
+
+executable day11
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day11
+
+executable day12
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day12
+
+executable day13
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day13
+
+executable day14
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day14
+
+executable day15
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day15
+
+executable day16
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day16
+
+executable day17
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day17
+
+executable day18
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day18
+
+executable day19
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day19
+
+executable day20
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day20
+
+executable day21
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day21
+
+executable day22
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day22
+
+executable day23
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day23
+
+executable day24
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day24
+
+executable day25
+  import:              shared-properties
+  main-is:             Main.hs
+  hs-source-dirs:      day25
