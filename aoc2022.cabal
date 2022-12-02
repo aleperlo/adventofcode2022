@@ -7,7 +7,9 @@ build-type:          Simple
 
 common shared-properties
   build-depends:       base >=4.14 && <4.15,
-                       split
+                       split,
+                       vector,
+                       containers
   default-language:    Haskell2010
 
 executable day01
