@@ -2,19 +2,16 @@ import qualified Data.Set as S
 import Data.Char
 import Data.Foldable
 
-splitRucksack :: Ord a => [a] -> (S.Set a, S.Set a)
-splitRucksack r = let compartments  = splitAt (length r `div` 2) r
-                  in (\(x,y) -> (S.fromList x, S.fromList y)) compartments
+splitRucksack :: Ord a => [a] -> [S.Set a]
+splitRucksack xs = map S.fromList [take n xs, drop n xs]
+  where n = length xs `div` 2
 
-groupRucksacks :: Ord a => [[a]] -> [(S.Set a, S.Set a, S.Set a)]
-groupRucksacks (x:y:z:rest) = (S.fromList x, S.fromList y, S.fromList z) : groupRucksacks rest
+groupRucksacks :: Ord a => [[a]] -> [[S.Set a]]
+groupRucksacks (x:y:z:rest) = map S.fromList [x, y, z] : groupRucksacks rest
 groupRucksacks _ = []
 
-commonItem :: Ord a => (S.Set a, S.Set a) -> a
-commonItem (x, y) = head $ S.elems $ S.intersection x y
-
-commonItem3 :: Ord a => (S.Set a, S.Set a, S.Set a) -> a
-commonItem3 (x, y, z) = head $ S.elems $ S.intersection (S.intersection x y) z
+commonItem :: Ord a => [S.Set a] -> a
+commonItem xs = head $ S.elems $ foldl1 S.intersection xs
 
 priority :: Char -> Int
 priority c
@@ -26,5 +23,5 @@ main = do
   contents <- readFile "day03/input.txt"
   let parsed = lines contents
       res1 = foldl' (\x y -> x + (priority . commonItem . splitRucksack) y) 0 parsed
-      res2 = foldl' (\x y -> x + (priority . commonItem3) y) 0 $ groupRucksacks parsed
+      res2 = foldl' (\x y -> x + (priority . commonItem) y) 0 $ groupRucksacks parsed
   mapM_ print [res1, res2]
