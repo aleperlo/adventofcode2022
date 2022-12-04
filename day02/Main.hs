@@ -1,5 +1,4 @@
 import qualified Data.Map as M
-import Data.Foldable
 import Data.Char
 
 parse :: String -> [(Char, Char)]
@@ -15,7 +14,7 @@ getValue :: (Char, Char) -> Int
 getValue pair = M.findWithDefault 0 pair valueMap
 
 score :: [(Char, Char)] -> Int
-score pairs = foldl' (\x y -> (+) x $ getValue y) 0 pairs
+score pairs = foldl (\x y -> (+) x $ getValue y) 0 pairs
 
 fixPair :: (Char, Char) -> (Char, Char)
 fixPair (x, 'A') = (x, chr $ (ord x - ord 'A' + 2) `mod` 3 + ord 'A')
