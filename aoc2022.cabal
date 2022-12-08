@@ -7,10 +7,12 @@ build-type:          Simple
 
 common shared-properties
   build-depends:       base >=4.14 && <4.15,
+                       array,
                        split,
                        vector,
                        containers,
                        bytestring,
+                       matrix,
                        text
   default-language:    Haskell2010
 
