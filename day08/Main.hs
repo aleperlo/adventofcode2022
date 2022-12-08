@@ -28,7 +28,8 @@ checkSide s p bounds@(nr, nc) fs ts
             B -> (V.reverse $ M.getCol p fs, (nr -), vZip)
             L -> (M.getRow p fs, (1 +), hZip)
             R -> (V.reverse $ M.getRow p fs, (nc -), hZip)
-      in checkSide s (p+1) bounds fs $ ts `S.union` visible treeLine p posShift zipFn
+          newTs = ts `S.union` visible treeLine p posShift zipFn
+      in checkSide s (p+1) bounds fs newTs
 
 visible :: TreeLine -> Int -> (Int -> Int) -> (Int -> Pos -> Pos) -> TreeSet
 visible line p posShift zipFn =
@@ -53,12 +54,10 @@ scenicScore fs (nr, nc) (x, y) =
   in product lengths
 
 lowerLen :: Int -> TreeLine -> Int
-lowerLen h v
-  | V.null v = 0
-  | otherwise =  let lTot = V.length v
-                     l = V.length $ V.takeWhile (h >) v
-                     inc = if l < lTot then 1 else 0
-                 in l + inc
+lowerLen h v = let lTot = V.length v
+                   l = V.length $ V.takeWhile (h >) v
+                   inc = if l < lTot then 1 else 0
+               in l + inc
 
 main :: IO ()
 main = do
